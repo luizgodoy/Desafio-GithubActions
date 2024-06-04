@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Passo 1 - Realizando Checkout no repositório
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Passo 2 - Docker login
         uses: docker/login-action@v3.0.0
@@ -27,6 +27,6 @@ jobs:
       - name: Passo 3 - Compilando e publicando uma imagem no DockerHub
         uses: docker/build-push-action@v5.0.0
         with:
-          context: .
+          context: ./Desafio-GithubActions-Api/
           tags: 'luizgodoy/fiap-desafio-gha:latest'
           push: true            
