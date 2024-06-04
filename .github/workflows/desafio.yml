@@ -12,7 +12,7 @@ on:
 jobs:
   desafio_githubactions_job:
     name: Executando o Job do Desafio da Aula de Github Actions
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Passo 1 - Realizando Checkout no repositório
@@ -28,5 +28,5 @@ jobs:
         uses: docker/build-push-action@v5.0.0
         with:
           context: .
-          tags: 'luizgodoy/fiap-desafio-gha:lastest'
+          tags: 'luizgodoy/fiap-desafio-gha:latest'
           push: true            
