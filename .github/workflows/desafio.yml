@@ -12,7 +12,7 @@ on:
 jobs:
   desafio_githubactions_job:
     name: Executando o Job do Desafio da Aula de Github Actions
-    runs-on: ubuntu-hosted
+    runs-on: ubuntu-lastest
 
     steps:
       - name: Passo 1 - Realizando Checkout no repositório
