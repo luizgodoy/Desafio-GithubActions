@@ -1,0 +1,32 @@
+﻿# Definindo o nome do Workflow
+
+name: Desafio Aula Github Actions
+
+# Definindo quando o Worflow será disparado
+on:
+    push:
+        branches: [main, develop]
+
+# Defina os jobs que o workflow executará
+
+jobs:
+  desafio_githubactions_job:
+    name: Executando o Job do Desafio da Aula de Github Actions
+    runs-on: ubuntu-hosted
+
+    steps:
+      - name: Passo 1 - Realizando Checkout no repositório
+        uses: actions/checkout@v2
+
+      - name: Passo 2 - Docker login
+        uses: docker/login-action@v3.0.0
+        with:
+          username: 'luizgodoy'
+          password: ${{secrets.DOCKERHUB_TOKEN}}
+
+      - name: Passo 3 - Compilando e publicando uma imagem no DockerHub
+        uses: docker/build-push-action@v5.0.0
+        with:
+          context: .
+          tags: 'luizgodoy/fiap-desafio-gha:lastest'
+          push: true            
